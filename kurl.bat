@@ -274,7 +274,7 @@ function optionParser(rawArgs){
 					break;
 				case "head":
 					options.method="HEAD";
-					options.viewHeader=truh;
+					options.viewHeader=true;
 					options.viewBody=true;
 					break;
 				case "data-ascii":
