@@ -107,8 +107,8 @@ function httpSend(options){
 		http.send(content);
 
 	    // 応答結果表示
-	    if(DEBUG || options.viewHead) WScript.Echo("*Status Code : "+http.status + " " + http.statusText);
-	    if(DEBUG || options.viewHead) WScript.Echo(http.getAllResponseHeaders());
+	    if(DEBUG || options.viewHeader) WScript.Echo("*Status Code : "+http.status + " " + http.statusText);
+	    if(DEBUG || options.viewHeader) WScript.Echo(http.getAllResponseHeaders());
 	    if(DEBUG || options.viewBody) WScript.Echo(http.responseText);
 	} catch (e) {
 	    // エラーの場合
@@ -168,8 +168,8 @@ function httpSendOld(options){
 		http.send(content);
 
 	    // 応答結果表示
-	    if(DEBUG || options.viewHead) WScript.Echo("*Status Code : "+http.status + " " + http.statusText);
-	    if(DEBUG || options.viewHead) WScript.Echo(http.getAllResponseHeaders());
+	    if(DEBUG || options.viewHeader) WScript.Echo("*Status Code : "+http.status + " " + http.statusText);
+	    if(DEBUG || options.viewHeader) WScript.Echo(http.getAllResponseHeaders());
 	    if(DEBUG || options.viewBody) WScript.Echo(http.responseText);
 	} catch (e) {
 	    // エラーの場合
@@ -274,7 +274,7 @@ function optionParser(rawArgs){
 					break;
 				case "head":
 					options.method="HEAD";
-					options.viewHead=true;
+					options.viewHeader=truh;
 					options.viewBody=true;
 					break;
 				case "data-ascii":
@@ -404,7 +404,7 @@ function optionParser(rawArgs){
 
 	// デフォルト処理
 	// オプションで設定がなかった項目でかつ処理に必須な項目を設定
-	if(options.viewHead==null)		options.viewHead=false;
+	if(options.viewHeader==null)		options.viewHeader=false;
 	if(options.viewBody==null)		options.viewBody=true;
 	if(options.error==null)		options.error=NOERROR;
 	if(options.method==null)	options.method="GET";
